@@ -1,0 +1,16 @@
+.godot/
+.import/
+
+export_presets.cfg
+build/
+dist/
+
+.mono/
+data_*/
+mono_crash.*.json
+
+.vsnudge/
+*.translation
+
+.DS_Store
+Thumbs.db

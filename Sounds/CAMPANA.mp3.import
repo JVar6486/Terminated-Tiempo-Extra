@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CAMPANA.mp3-564dc56599ab298ec992179dd3e9abad.mp3str"
+
+[deps]
+
+source_file="res://Sounds/CAMPANA.mp3"
+dest_files=[ "res://.import/CAMPANA.mp3-564dc56599ab298ec992179dd3e9abad.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

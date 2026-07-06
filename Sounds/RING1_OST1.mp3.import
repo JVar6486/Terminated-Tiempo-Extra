@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RING1_OST1.mp3-ec74c8d194a746c9f85912395aef7596.mp3str"
+
+[deps]
+
+source_file="res://Sounds/RING1_OST1.mp3"
+dest_files=[ "res://.import/RING1_OST1.mp3-ec74c8d194a746c9f85912395aef7596.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

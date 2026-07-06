@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://ModeloJugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Hitbox_MDer.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ControlJugador.gd" type="Script" id=3]
+[ext_resource path="res://Hitbox_PieA.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 1, 10.9189 )
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.001
+extents = Vector3( 35.432, 38.8738, 35.6807 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 241.329, 420.371, 97.066 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 160.097, 322.768, 134.327 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Armature/Skeleton/BoneAttachment_MDer/Hitbox_MDer:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Armature/Skeleton/BoneAttachment/Hitbox_PieA:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Player" type="KinematicBody"]
+collision_layer = 2
+script = ExtResource( 3 )
+
+[node name="CollisionShape (Suelo)" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 10.9638, 0 )
+shape = SubResource( 5 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="ModeloA" parent="Spatial" instance=ExtResource( 1 )]
+
+[node name="BoneAttachment_MDer" type="BoneAttachment" parent="Spatial/ModeloA/Armature/Skeleton" index="1"]
+transform = Transform( -0.624436, -0.751315, 0.213552, -0.702345, 0.659726, 0.267345, -0.341746, 0.0169532, -0.939639, -270.352, 875.372, -1313.26 )
+bone_name = "mixamorig_LeftHand"
+
+[node name="Hitbox_MDer" type="Area" parent="Spatial/ModeloA/Armature/Skeleton/BoneAttachment_MDer"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/ModeloA/Armature/Skeleton/BoneAttachment_MDer/Hitbox_MDer"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="BoneAttachment_Pecho" type="BoneAttachment" parent="Spatial/ModeloA/Armature/Skeleton" index="2"]
+transform = Transform( 0.912711, -0.22249, -0.342721, 0.40523, 0.385275, 0.829066, -0.0524173, -0.895578, 0.441804, 15.0925, -48.3037, -1193.86 )
+bone_name = "mixamorig_Spine1"
+
+[node name="Hurtbox_Pecho" type="Area" parent="Spatial/ModeloA/Armature/Skeleton/BoneAttachment_Pecho"]
+transform = Transform( 1, 6.87005e-16, -3.46945e-18, -6.45073e-16, 1, -9.31323e-10, 1.04083e-17, 9.31323e-10, 1, 56.4013, 0, 0 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/ModeloA/Armature/Skeleton/BoneAttachment_Pecho/Hurtbox_Pecho"]
+transform = Transform( 1, 1.49012e-08, 2.98023e-08, -4.47035e-08, 1, -2.01166e-07, 5.66244e-07, -4.47035e-08, 1, -30.6222, 74.1455, 35.6779 )
+shape = SubResource( 3 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Spatial/ModeloA/Armature/Skeleton" index="3"]
+transform = Transform( -0.867133, -0.47468, -0.150856, -0.498049, 0.82322, 0.2725, -0.00516228, 0.311427, -0.950256, -130.924, 292.133, -56.1926 )
+bone_name = "mixamorig_RightFoot"
+
+[node name="Hitbox_PieA" type="Area" parent="Spatial/ModeloA/Armature/Skeleton/BoneAttachment"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/ModeloA/Armature/Skeleton/BoneAttachment/Hitbox_PieA"]
+transform = Transform( 0.836439, -0.39087, -0.384166, 0.00504124, 0.706419, -0.70777, 0.548031, 0.590074, 0.592849, -20.3977, 240.419, 262.138 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" parent="Spatial/ModeloA" index="1"]
+playback_speed = 1.5
+anims/RESET = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ImmunityTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="area_entered" from="Spatial/ModeloA/Armature/Skeleton/BoneAttachment_Pecho/Hurtbox_Pecho" to="." method="_on_Hurtbox_Pecho_area_entered"]
+
+[editable path="Spatial/ModeloA"]

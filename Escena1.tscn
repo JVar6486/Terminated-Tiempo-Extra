@@ -1,0 +1,598 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://ControlJugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Images/242494(0).png" type="Texture" id=2]
+[ext_resource path="res://ControlEnemigo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Ring/RingOPT.glb" type="PackedScene" id=4]
+[ext_resource path="res://assets/Adornos/ReflectorBamba.glb" type="PackedScene" id=5]
+[ext_resource path="res://Images/242494.png" type="Texture" id=6]
+[ext_resource path="res://Images/solid-color-image.png" type="Texture" id=7]
+[ext_resource path="res://Images/242494(1).png" type="Texture" id=8]
+[ext_resource path="res://Images/242494(2).png" type="Texture" id=9]
+[ext_resource path="res://Images/242494(3).png" type="Texture" id=10]
+[ext_resource path="res://Images/image.png" type="Texture" id=11]
+[ext_resource path="res://scripts/ProgressBarPlayer.gd" type="Script" id=12]
+[ext_resource path="res://Sounds/RING1_OST2.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/Fonts/sidewalk.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Sounds/RING1_OST3.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/RING1_OST1.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/CAMPANA.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/KO1.mp3" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/ATAQUE2.mp3" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/ATAQUE_1.mp3" type="AudioStream" id=20]
+[ext_resource path="res://assets/Fonts/Jersey M54.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://assets/TemaBotones1.tres" type="Theme" id=22]
+[ext_resource path="res://scripts/CanvasLayer3.gd" type="Script" id=23]
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+ambient_light_color = Color( 0.47451, 0.388235, 0.247059, 1 )
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 5, 0.5, 5 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.630713, 4.4284, 4.86108 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1.04453, 0.417722, 1 )
+
+[sub_resource type="GDScript" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 150
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "Nueva Animación"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Label4:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "a", "ar", "arn", "arno", "arnol", "arnold", "arnold g", "arnold ga", "arnold gan", "arnold gana", "arnold gana!" ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Nueva Animación (2)"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Label5:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "e", "el", "el ", "el j", "el je", "el jef", "el jefe", "el jefe", "el jefe g", "el jefe ga", "el jefe gan", "el jefe gana", "el jefe gana!" ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 381, 355 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/Label2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 355 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect/Label3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 355 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect/Label:custom_fonts/font:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 150 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect/Label:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect/Label2:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect/Label3:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ColorRect/Label4:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "a" ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ColorRect/Label5:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "e" ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Round1"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 355 ), Vector2( 150, 355 ), Vector2( 158, 355 ), Vector2( 150, 355 ), Vector2( 153, 355 ), Vector2( 150, 355 ), Vector2( 300, 240 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/Label:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Round2"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Label2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 355 ), Vector2( 150, 355 ), Vector2( 158, 355 ), Vector2( 150, 355 ), Vector2( 153, 355 ), Vector2( 150, 355 ), Vector2( 300, 240 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/Label2:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Round3"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Label3:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1000, 355 ), Vector2( 150, 355 ), Vector2( 158, 355 ), Vector2( 150, 355 ), Vector2( 153, 355 ), Vector2( 150, 355 ), Vector2( 300, 240 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/Label3:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 32
+font_data = ExtResource( 21 )
+
+[node name="Main" type="Node"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.84085, 0.541268, 0, -0.541268, 0.84085, 0.732794, 9.68456, 7.56901 )
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Luces" type="Node" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Luces"]
+transform = Transform( -1, -1.98362e-11, 0.000453799, -0.000453799, 4.37114e-08, -1, 0, -1, -4.37114e-08, -1.72357, 1.45831, -0.209597 )
+light_energy = 5.0
+spot_range = 10.7107
+spot_angle = 19.1962
+
+[node name="SpotLight2" type="SpotLight" parent="Luces"]
+transform = Transform( -0.999999, 6.40897e-11, -0.0014662, 0.0014662, 4.37114e-08, -0.999999, 0, -1, -4.37114e-08, 3.06341, 1.00977, -0.209597 )
+light_energy = 5.0
+spot_range = 11.4727
+spot_angle = 18.1031
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Luces"]
+transform = Transform( 1, 0, 0, 0, -0.804521, 0.593925, 0, -0.593925, -0.804521, 0, 11.7278, -9.11739 )
+
+[node name="Piso y Adornos" type="Node" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="Piso y Adornos"]
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Piso y Adornos/StaticBody"]
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.910448, 0.588207, -1.0457 )
+shape = SubResource( 1 )
+
+[node name="RingOPT" parent="Piso y Adornos/StaticBody" instance=ExtResource( 4 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.824038, 0, -1.02357 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Piso y Adornos/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3251, 5.77796, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Piso y Adornos/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96441, 5.77796, 0 )
+shape = SubResource( 4 )
+
+[node name="Luz_1" type="StaticBody" parent="Piso y Adornos"]
+transform = Transform( 1, 0, 0, 0, 0.875498, 0.483221, 0, -0.483221, 0.875498, -8.50705, 8.71547, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Piso y Adornos/Luz_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73617, 1.23276, 0 )
+shape = SubResource( 3 )
+
+[node name="ReflectorBamba" parent="Piso y Adornos/Luz_1" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.77005, 0.69054, -1.30441 )
+
+[node name="Luz_2" type="StaticBody" parent="Piso y Adornos"]
+transform = Transform( 1, 0, 0, 0, 0.875498, 0.483221, 0, -0.483221, 0.875498, -3.95826, 8.71547, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Piso y Adornos/Luz_2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73617, 1.23276, 0 )
+shape = SubResource( 3 )
+
+[node name="ReflectorBamba" parent="Piso y Adornos/Luz_2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.77005, 0.69054, -1.30441 )
+
+[node name="Personajes" type="Node" parent="."]
+
+[node name="Player" parent="Personajes" instance=ExtResource( 1 )]
+transform = Transform( 0.0201869, -0.00543777, 0.198904, 0, 0.199925, 0.00546568, -0.198979, -0.000551676, 0.0201794, -4.46247, 1.7, 0 )
+
+[node name="Enemy" parent="Personajes" instance=ExtResource( 3 )]
+transform = Transform( 0.0364808, 0.0113356, -0.216657, 0, 0.2197, 0.0114947, 0.216954, -0.00190608, 0.0364309, 5.90255, 1.7, 0 )
+ruta_jugador = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_left = 900.0
+margin_top = 5.0
+margin_right = 940.0
+margin_bottom = 45.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+margin_left = 29.0
+margin_top = 294.0
+margin_right = 62.0
+margin_bottom = 327.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="ProgressBarEnemy" type="TextureProgress" parent="CanvasLayer/Control/TextureRect"]
+anchor_left = 0.465
+anchor_top = 0.222
+anchor_right = 0.465
+anchor_bottom = 0.222
+margin_left = -6.01167
+margin_top = -131.326
+margin_right = 33.9883
+margin_bottom = 168.674
+rect_scale = Vector2( 0.5, 0.5 )
+max_value = 28.0
+texture_progress = ExtResource( 7 )
+fill_mode = 3
+script = SubResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control"]
+margin_left = 56.0
+margin_top = 318.0
+margin_right = 66.0
+margin_bottom = 327.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control"]
+margin_left = 56.0
+margin_top = 319.0
+margin_right = 66.0
+margin_bottom = 328.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control"]
+margin_left = 56.0
+margin_top = 318.0
+margin_right = 66.0
+margin_bottom = 327.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+
+[node name="ControlArnol" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="ControlArnol"]
+margin_left = 30.0
+margin_top = 294.0
+margin_right = 70.0
+margin_bottom = 334.0
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 11 )
+
+[node name="ProgressBarPlayer" type="TextureProgress" parent="ControlArnol/TextureRect"]
+margin_left = 11.6667
+margin_top = -120.833
+margin_right = 31.6667
+margin_bottom = 129.167
+rect_scale = Vector2( 0.6, 0.5 )
+max_value = 28.0
+texture_progress = ExtResource( 7 )
+fill_mode = 3
+script = ExtResource( 12 )
+
+[node name="TextureRect2" type="TextureRect" parent="ControlArnol"]
+margin_left = 49.0
+margin_top = 316.0
+margin_right = 89.0
+margin_bottom = 356.0
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 10 )
+
+[node name="TextureRect3" type="TextureRect" parent="ControlArnol"]
+margin_left = 49.0
+margin_top = 317.0
+margin_right = 89.0
+margin_bottom = 357.0
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 9 )
+
+[node name="TextureRect4" type="TextureRect" parent="ControlArnol"]
+margin_left = 49.0
+margin_top = 316.0
+margin_right = 89.0
+margin_bottom = 356.0
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 8 )
+
+[node name="TextureRect5" type="TextureRect" parent="ControlArnol"]
+margin_left = 49.0
+margin_top = 316.0
+margin_right = 89.0
+margin_bottom = 356.0
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -5.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -10.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="AudioStreamATK1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="AudioStreamATK2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+margin_left = 25.0
+margin_top = -136.0
+margin_right = 65.0
+margin_bottom = -96.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="Label" type="Label" parent="CanvasLayer2/ColorRect"]
+margin_left = 381.0
+margin_top = 355.0
+margin_right = 1082.0
+margin_bottom = 497.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 95, 20 )
+custom_fonts/font = SubResource( 6 )
+text = "Round 1"
+
+[node name="Label2" type="Label" parent="CanvasLayer2/ColorRect"]
+margin_left = 1000.0
+margin_top = 355.0
+margin_right = 1729.0
+margin_bottom = 497.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 95, 20 )
+custom_fonts/font = SubResource( 6 )
+text = "Round 2"
+
+[node name="Label3" type="Label" parent="CanvasLayer2/ColorRect"]
+margin_left = 1000.0
+margin_top = 355.0
+margin_right = 1731.0
+margin_bottom = 497.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 95, 20 )
+custom_fonts/font = SubResource( 6 )
+text = "Round 3"
+
+[node name="Label4" type="Label" parent="CanvasLayer2/ColorRect"]
+margin_left = 210.0
+margin_top = 240.0
+margin_right = 1495.0
+margin_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 95, 20 )
+custom_fonts/font = SubResource( 6 )
+text = "a"
+
+[node name="Label5" type="Label" parent="CanvasLayer2/ColorRect"]
+margin_left = 210.0
+margin_top = 240.0
+margin_right = 1442.0
+margin_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 95, 20 )
+custom_fonts/font = SubResource( 6 )
+text = "e"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2"]
+"anims/Nueva Animación" = SubResource( 11 )
+"anims/Nueva Animación (2)" = SubResource( 12 )
+anims/RESET = SubResource( 7 )
+anims/Round1 = SubResource( 8 )
+anims/Round2 = SubResource( 9 )
+anims/Round3 = SubResource( 10 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+script = ExtResource( 23 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+margin_left = 382.0
+margin_top = 196.0
+margin_right = 578.0
+margin_bottom = 404.0
+color = Color( 0, 0, 0, 0.509804 )
+
+[node name="Button" type="Button" parent="CanvasLayer3"]
+margin_left = 422.0
+margin_top = 220.0
+margin_right = 542.0
+margin_bottom = 259.0
+theme = ExtResource( 22 )
+custom_fonts/font = SubResource( 13 )
+text = "REiniciar"
+
+[node name="Button2" type="Button" parent="CanvasLayer3"]
+margin_left = 422.0
+margin_top = 280.0
+margin_right = 542.0
+margin_bottom = 319.0
+theme = ExtResource( 22 )
+custom_fonts/font = SubResource( 13 )
+text = "Menu"
+
+[node name="Button3" type="Button" parent="CanvasLayer3"]
+margin_left = 422.0
+margin_top = 340.0
+margin_right = 542.0
+margin_bottom = 379.0
+theme = ExtResource( 22 )
+custom_fonts/font = SubResource( 13 )
+text = "salir"
+
+[connection signal="pressed" from="CanvasLayer3/Button" to="CanvasLayer3" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Button2" to="CanvasLayer3" method="_on_Button2_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Button3" to="CanvasLayer3" method="_on_Button3_pressed"]

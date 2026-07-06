@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KO1.mp3-a190d2dbce1b0cf869bf2626ec4d7516.mp3str"
+
+[deps]
+
+source_file="res://Sounds/KO1.mp3"
+dest_files=[ "res://.import/KO1.mp3-a190d2dbce1b0cf869bf2626ec4d7516.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
